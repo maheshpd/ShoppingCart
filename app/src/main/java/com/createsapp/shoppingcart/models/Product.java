@@ -1,7 +1,12 @@
 package com.createsapp.shoppingcart.models;
 
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
+import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.DiffUtil;
+
+import com.bumptech.glide.Glide;
 
 import java.util.Objects;
 
@@ -94,5 +99,14 @@ public class Product {
             return oldItem.equals(newItem);
         }
     };
+
+    @BindingAdapter("android:productImage")
+    public static void loadImage(ImageView imageView, String imageUrl){
+        Glide.with(imageView)
+                .load(imageUrl)
+                .fitCenter()
+                .into(imageView);
+
+    }
 
 }
