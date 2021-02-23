@@ -1,6 +1,7 @@
 package com.createsapp.shoppingcart.viewmodels;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.createsapp.shoppingcart.databinding.ShopRowBinding;
@@ -13,7 +14,18 @@ public class ShopViewModel extends ViewModel {
 
     ShopRepo shopRepo = new ShopRepo();
 
-     public LiveData<List<Product>> getProducts(){
-         return shopRepo.getProducts();
-     }
+    MutableLiveData<Product> mutableLiveData = new MutableLiveData<>();
+
+    public LiveData<List<Product>> getProducts() {
+        return shopRepo.getProducts();
+    }
+
+    public void setProduct(Product product) {
+        mutableLiveData.setValue(product);
+    }
+
+    public LiveData<Product> getProdcut(){
+        return mutableLiveData;
+    }
+
 }
