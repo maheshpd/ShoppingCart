@@ -9,6 +9,8 @@
         <variable
             name="shopViewModel"
             type="com.createsapp.shoppingcart.viewmodels.ShopViewModel" />
+
+
     </data>
 
     <ScrollView
@@ -93,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:enabled="@{shopViewModel.prodcut.available}"
                 android:text="Add to cart"
+                android:onClick="@{()-> shopViewModel.addItemToCart(shopViewModel.prodcut)}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
         </LinearLayout>
 

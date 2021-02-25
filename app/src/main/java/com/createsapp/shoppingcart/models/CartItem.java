@@ -2,7 +2,7 @@ package com.createsapp.shoppingcart.models;
 
 import java.util.Objects;
 
-class CartItem {
+public class CartItem {
     private Product product;
     private int quantity;
 
